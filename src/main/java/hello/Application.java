@@ -106,26 +106,17 @@ public class Application {
     if (myState.score < previousScore && !randomMovedPreviously) {
         randomMovedPreviously = true;
         command = randomMove();
-    }
-
-    if (enemyTargetingCount > 1) {
+    } else if (enemyTargetingCount > 1) {
         randomMovedPreviously = false;
         command = "F";
-    }
-
-    if (haveTarget(arenaUpdate)) {
+    } else if (haveTarget(arenaUpdate)) {
         randomMovedPreviously = false;
         command = "T";
-    }
-
-    if (enemyTargetingCount == 1) {
+    } else if (enemyTargetingCount == 1) {
         randomMovedPreviously = false;
         command = "F";
-    }
-
-    if (command == null) {
+    } else {
         command = randomMove();
-
     }
     
     previousScore = myState.score;
